@@ -46,12 +46,13 @@ function configure_smtp( $phpmailer ) {
     $phpmailer->From       = get_theme_mod( 'smtp_from' );
     $phpmailer->FromName   = get_theme_mod( 'smtp_from_name' );
 }
+
+add_action( 'phpmailer_init', 'configure_smtp' );
 ```
 
 ### Add Customizer Settings
 
 ```php
-add_action( 'phpmailer_init', 'configure_smtp' );
 
 function mytheme_customize_register( $wp_customize ) {
     $wp_customize->add_section( 'smtp_settings', array(
@@ -136,3 +137,16 @@ function mytheme_customize_register( $wp_customize ) {
         'type'     => 'text',
     ) );
 
+    $wp_customize->add_control( 'smtp_encryption', array(
+        'label'    => __( 'SMTP Encryption', 'mytheme' ),
+        'section'  => 'smtp_settings',
+        'settings' => 'smtp_encryption',
+        'type'     => 'select',
+        'choices'  => array(
+            ''    => 'None',
+            'ssl' => 'SSL',
+            'tls' => 'TLS',
+        ),
+    ) );
+}
+add_action( 'customize_register', 'mytheme_customize_register' );
