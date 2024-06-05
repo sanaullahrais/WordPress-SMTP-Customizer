@@ -46,7 +46,7 @@ function configure_smtp( $phpmailer ) {
     $phpmailer->From       = get_theme_mod( 'smtp_from' );
     $phpmailer->FromName   = get_theme_mod( 'smtp_from_name' );
 }
-
+```
 
 ### Add Customizer Settings
 
