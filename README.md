@@ -32,7 +32,7 @@ This plugin adds SMTP configuration settings to the WordPress Customizer, allowi
 
 ## Code
 
-### Add Customizer Settings
+### Add Function
 
 ```php
 function configure_smtp( $phpmailer ) {
@@ -47,6 +47,10 @@ function configure_smtp( $phpmailer ) {
     $phpmailer->FromName   = get_theme_mod( 'smtp_from_name' );
 }
 
+
+### Add Customizer Settings
+
+```php
 add_action( 'phpmailer_init', 'configure_smtp' );
 
 function mytheme_customize_register( $wp_customize ) {
