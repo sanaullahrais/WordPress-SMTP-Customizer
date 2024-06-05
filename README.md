@@ -35,6 +35,20 @@ This plugin adds SMTP configuration settings to the WordPress Customizer, allowi
 ### Add Customizer Settings
 
 ```php
+function configure_smtp( $phpmailer ) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = get_theme_mod( 'smtp_host' );
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->Port       = get_theme_mod( 'smtp_port' );
+    $phpmailer->Username   = get_theme_mod( 'smtp_username' );
+    $phpmailer->Password   = get_theme_mod( 'smtp_password' );
+    $phpmailer->SMTPSecure = get_theme_mod( 'smtp_encryption' );
+    $phpmailer->From       = get_theme_mod( 'smtp_from' );
+    $phpmailer->FromName   = get_theme_mod( 'smtp_from_name' );
+}
+
+add_action( 'phpmailer_init', 'configure_smtp' );
+
 function mytheme_customize_register( $wp_customize ) {
     $wp_customize->add_section( 'smtp_settings', array(
         'title'    => __( 'SMTP Settings', 'mytheme' ),
