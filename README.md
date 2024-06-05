@@ -11,7 +11,7 @@ This code adds SMTP configuration settings to the WordPress Customizer, allowing
 
 1. **Clone the Repository:**
     ```sh
-    git clone https://github.com/yourusername/wordpress-smtp-customizer.git
+    git clone [https://github.com/yourusername/wordpress-smtp-customizer.git](https://github.com/sanaullahrais/WordPress-SMTP-Customizer.git)
     ```
 
 2. **Navigate to the Theme Directory:**
