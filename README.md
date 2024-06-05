@@ -1,6 +1,6 @@
 # WordPress SMTP Customizer
 
-This plugin adds SMTP configuration settings to the WordPress Customizer, allowing administrators to easily set up and manage SMTP settings for outgoing emails.
+This code adds SMTP configuration settings to the WordPress Customizer, allowing administrators to easily set up and manage SMTP settings for outgoing emails.
 
 ## Features
 - Add SMTP settings to the WordPress Customizer
